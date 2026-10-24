@@ -1,0 +1,92 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  --bg-main: #060d1f;
+  --bg-card: rgba(12, 24, 54, 0.82);
+  --bg-surface: #102046;
+  --border-line: rgba(255, 255, 255, 0.08);
+  --text-main: #ffffff;
+  --text-muted: #94a3b8;
+  --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-display: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+}
+
+.light {
+  --bg-main: #f4f7fb;
+  --bg-card: rgba(255, 255, 255, 0.88);
+  --bg-surface: #e9eff7;
+  --border-line: rgba(0, 0, 0, 0.08);
+  --text-main: #0a1835;
+  --text-muted: #4b607e;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: var(--font-main);
+  overflow-x: hidden;
+  position: relative;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Subtle modern grid graphic backdrop */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: 
+    radial-gradient(rgba(147, 51, 234, 0.06) 1.5px, transparent 1.5px),
+    radial-gradient(rgba(6, 182, 212, 0.05) 1.5px, transparent 1.5px);
+  background-size: 36px 36px;
+  background-position: 0 0, 18px 18px;
+  z-index: 0;
+  opacity: 0.85;
+}
+
+h1, h2, h3, .brand-font, .font-heading {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+@keyframes calmPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(225, 29, 72, 0.4);
+  }
+  50% {
+    transform: scale(1.03);
+    box-shadow: 0 0 35px rgba(225, 29, 72, 0.65);
+  }
+}
+
+.calm-sos-pulse {
+  animation: calmPulse 2.2s infinite ease-in-out;
+}
+
+@keyframes floatGentle {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-8px) scale(1.02); }
+}
+
+.animate-float {
+  animation: floatGentle 6s ease-in-out infinite;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #1c3361;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2a4c8f;
+}
